@@ -9,6 +9,17 @@ const Header = () => {
             <p> New: AI feature integrated  </p>
             <img src={assets.star_icon} className='w-2.5' alt="" />
         </div>
+
+        <h1 className='text-3xl sm:text-6xl font-semibold sm:leading-16 text-gray-700'>your own <span className='text-primary'>blogging</span><br/> platform. </h1>
+
+        <p className='my-6 sm:my-8 max-w-2xl m-auto max-sm:text-xs text-gray-500'>this is your spae to think out loud, to share what matters, and to withaut filters. whether it's one word or a thousand, your story starts right here.</p>
+
+        <form className='flex justify-between max-w-lg max-sm:scale-75 mx-auto border border-gray-300 bg-white rounded overflow-hidden'>
+          <input type="text" placeholder='Search tor blogs ' required  className='w-full outline-none'/>
+          <button type='submit' className='bg-primary text-white px-8 py-2 m-0.5 rounded hover:scale-105 transition-all cursor-pointer '>Search</button>
+        </form>
+
+
       </div>
       <img src={assets.gradientBackground} alt="" className='absolute -top-50 -z-1 opacity-50' />
     </div>
