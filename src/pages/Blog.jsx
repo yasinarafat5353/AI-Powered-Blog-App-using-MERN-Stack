@@ -12,6 +12,9 @@ export default function Blog() {
   const [data, setData] = useState(null)
   const [comments, setComments] = useState([])
 
+ const [name, setName] = useState('')
+ const [content, setContent] = useState('')
+
   const fetchBlogData = async ()=>{
   const data = blog_data.find(item => item._id ===id)
   setData(data)
@@ -19,6 +22,9 @@ export default function Blog() {
 
   const fetchComments = async () => {
     setComments(comments_data)
+  }
+  const addComment = async (e)=>{
+    e.prevenDefault();
   }
 
 
@@ -46,7 +52,7 @@ export default function Blog() {
 
         {/* Comment Section  */}
       <div className='mt-14 mb-10 max-w-3xl mx-auto'>
-        <p>Comments {comments.length}</p>
+        <p className='font-semibold mb-4'>Comments {comments.length}</p>
         <div className='flex flex-col gap-4'>
           {comments.map((item, index)=>(
             <div key={index} className='relative bg-primary/2 border border-primary/5 max-w-xl p-4 rounded text-gray-600'>
@@ -61,7 +67,20 @@ export default function Blog() {
 
         </div>
       </div>
+      {/* add Commment Section */}
+      <div className='max-w-3xl mx-auto'>
+          <p className='font-semibold mb-4'>Add your comment </p>
+          <form onSubmit={addComment} className='flex flex-col items-start gap-4 max-w-lg' >
+            <input onChange={(e)=> setName(e.target.value)} value={name} type="text" placeholder='Name' required className='w-full p-2 border border-gray-300 rounded outline-none'/>
 
+            <textarea onChange={(e)=> setContent(e.target.value)} value={content} placeholder='Comment' className='w-full p-2 border border-gray-300 outline-none h-48' required></textarea>
+            <button type='submit' className='bg-primary text-white rounded p-2 px-8 hover:scale-103 transition-all cursor-pointer'>Submit</button>
+          </form>
+      </div>
+{/* Shara Buttons  */}
+      <div className='my-24 max-w-3xl mx-auto'>
+        <p className='font-semibold my-4 '>Share this article on social media</p>
+      </div>
     </div>
 
     </div>
