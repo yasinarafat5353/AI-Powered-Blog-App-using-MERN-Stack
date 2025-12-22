@@ -9,7 +9,7 @@ import Comments from "./pages/admin/Comments";
 import Login from "./components/admin/Login";
 
 export default function App() {
-  const isAuthenticated = false; // Replace with actual auth logic
+  const isAuthenticated = true; // Replace with actual auth logic
   return (
     <div>
       <Routes>
