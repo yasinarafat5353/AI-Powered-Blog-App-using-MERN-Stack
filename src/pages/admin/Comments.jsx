@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import {comments_data} from '../../assets/assets'
+import CommentTableItem from "./CommentTableItem"
 
 const Comments = () => {
 
@@ -11,9 +12,8 @@ const Comments = () => {
   }
 
   useEffect(()=>{
-    fetchComments()
-  })
-
+    setComments(comments_data)
+  }, [])
 
   return (
     <div className="flex-1 pt-5 px-5 sm:pl-16 bg-blue-50/50">
@@ -39,7 +39,7 @@ const Comments = () => {
             {comments.filter((comment)=>{
               if(filter === "Approved") return comment.isApproved === true;
               return comment.isApproved === false;
-            })}
+            }).map((comment, index)=> <CommentTableItem key={comment._id} comment={comment} index={index + 1} fetchComments={fetchComments} />)}
           </tbody>
         </table>
       </div>

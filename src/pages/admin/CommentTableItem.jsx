@@ -1,8 +1,7 @@
 
-import { p } from 'motion/react-client';
 import { assets } from '../../assets/assets';
 
-const CommentTableItem = ({comment, fetchComments}) => {
+const CommentTableItem = ({comment}) => {
 
     const {blog, createdAT, _id} = comment;
     const blogDate = new Date(createdAT);
